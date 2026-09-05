@@ -1,0 +1,5 @@
+* GITHUB#16295: SingletonSortedNumericDocValues now delegates rangeIntoBitSet
+  to the wrapped NumericDocValues, enabling optimized range evaluation for
+  single-valued sorted numeric fields. (Costin Leau)
+
+Other

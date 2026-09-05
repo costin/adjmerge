@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    name: Test on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        include:
+          # For macOS, we'll test on both Intel and Apple Silicon
+          - os: macos-latest
+            target: x86_64-apple-darwin
+          - os: macos-14  # Apple Silicon runner
+            target: aarch64-apple-darwin
+          # Linux and Windows keep their default targets
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+          - os: windows-latest
+            target: x86_64-pc-windows-msvc
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install Rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+
+      - name: Run tests
+        run: cargo test --release
+
+      - name: Build (check compilation)
+        run: cargo build --release
+
+      - name: Run clippy (linter)
+        run: cargo clippy -- -D warnings
+
+      - name: Check formatting
+        run: cargo fmt -- --check
+
+  # Optional: Security audit
+  security-audit:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions-rs/audit-check@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}

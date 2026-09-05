@@ -1,0 +1,32 @@
+[package]
+name = "adjmerge"
+version = "0.1.0"
+edition = "2021"
+description = "Git merge driver that resolves adjacent non-overlapping changes Git falsely flags as conflicts"
+license = "Apache-2.0"
+repository = "https://github.com/costin/adjmerge"
+readme = "README.md"
+keywords = ["merge", "diff", "git", "three-way", "vcs"]
+categories = ["command-line-utilities", "development-tools"]
+
+[lib]
+name = "adjmerge"
+
+[[bin]]
+name = "adjmerge"
+path = "src/main.rs"
+
+[dependencies]
+# Histogram handles changelog repeats better than Myers
+imara-diff = "0.2"
+# Minimal CLI parsing
+pico-args = "0.5"
+# Byte search for newline scanning
+memchr = "2"
+
+[dev-dependencies]
+# Property tests for tokenizer roundtrip
+proptest = "1"
+[profile.release]
+lto = true
+strip = true

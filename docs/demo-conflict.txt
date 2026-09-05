@@ -1,0 +1,25 @@
+$ git merge fix/singleton-docvalues
+Auto-merging CHANGES.txt
+CONFLICT (content): Merge conflict in CHANGES.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+$ cat CHANGES.txt
+Improvements
+---------------------
+
+* GITHUB#16141: Optimize DefaultBulkScorer for ConstantScoreScorer by batching
+  doc IDs into a FixedBitSet window via intoBitSet, replacing per-doc virtual
+  dispatch with bulk bitwise operations. (Costin Leau)
+
+<<<<<<< HEAD
+* GITHUB#16166: Add scalar bulk range evaluation for sorted numeric doc values,
+  letting skip-indexed multi-valued range queries participate in
+  DenseConjunctionBulkScorer's bitset flow. (Costin Leau)
+=======
+* GITHUB#16295: SingletonSortedNumericDocValues now delegates rangeIntoBitSet
+  to the wrapped NumericDocValues, enabling optimized range evaluation for
+  single-valued sorted numeric fields. (Costin Leau)
+>>>>>>> fix/singleton-docvalues
+
+Other
+---------------------
