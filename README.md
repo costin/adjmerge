@@ -19,11 +19,11 @@ adjmerge can run as a Git merge driver during `git merge` with no workflow chang
 
 | Platform | Download |
 |----------|----------|
-| Linux 64-bit | [`adjmerge-linux-x64`](https://github.com/costin/adjmerge/releases/download/0.1.0/adjmerge-linux-x64) |
-| macOS Apple Silicon | [`adjmerge-macos-aarch64`](https://github.com/costin/adjmerge/releases/download/0.1.0/adjmerge-macos-aarch64) |
-| macOS Intel | [`adjmerge-macos-x64`](https://github.com/costin/adjmerge/releases/download/0.1.0/download/adjmerge-macos-x64) |
-| Windows 64-bit | [`adjmerge-x64.exe`](https://github.com/costin/adjmerge/releases/download/0.1.0/adjmerge-x64.exe) |
-| Windows 32-bit | [`adjmerge-x86.exe`](https://github.com/costin/adjmerge/releases/download/0.1.0/adjmerge-x86.exe) |
+| Linux 64-bit | [`adjmerge-linux-x64`](https://github.com/costin/adjmerge/releases/download/v0.1.0/adjmerge-linux-x64) |
+| macOS Apple Silicon | [`adjmerge-macos-aarch64`](https://github.com/costin/adjmerge/releases/download/v0.1.0/adjmerge-macos-aarch64) |
+| macOS Intel | [`adjmerge-macos-x64`](https://github.com/costin/adjmerge/releases/download/v0.1.0/download/adjmerge-macos-x64) |
+| Windows 64-bit | [`adjmerge-x64.exe`](https://github.com/costin/adjmerge/releases/download/v0.1.0/adjmerge-x64.exe) |
+| Windows 32-bit | [`adjmerge-x86.exe`](https://github.com/costin/adjmerge/releases/download/v0.1.0/adjmerge-x86.exe) |
 
 You might want to rename the binary to adjmerge after download.
 
